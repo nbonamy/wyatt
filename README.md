@@ -17,14 +17,23 @@ Windows keep their position but get clamped to fit within the main screen.
 - macOS 13+
 - Accessibility permissions (prompted on first launch)
 
-## Build
+## Build & Install
 
 ```bash
-swift build -c release
-cp .build/release/Wyatt /Applications/
+make install
 ```
 
+This builds a proper `.app` bundle and installs it to `/Applications`.
+
 Then add Wyatt to Login Items in System Settings to launch at startup.
+
+## Other commands
+
+```bash
+make build      # build the .app bundle locally
+make uninstall  # remove from /Applications
+make clean      # clean build artifacts
+```
 
 ## License
 
