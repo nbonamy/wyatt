@@ -9,7 +9,9 @@ APP_BUNDLE = $(APP_NAME).app
 build:
 	swift build -c release
 	mkdir -p $(APP_BUNDLE)/Contents/MacOS
+	mkdir -p $(APP_BUNDLE)/Contents/Resources
 	cp .build/release/$(APP_NAME) $(APP_BUNDLE)/Contents/MacOS/
+	cp Resources/Wyatt.icns $(APP_BUNDLE)/Contents/Resources/
 	@echo '<?xml version="1.0" encoding="UTF-8"?>' > $(APP_BUNDLE)/Contents/Info.plist
 	@echo '<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">' >> $(APP_BUNDLE)/Contents/Info.plist
 	@echo '<plist version="1.0">' >> $(APP_BUNDLE)/Contents/Info.plist
@@ -22,6 +24,7 @@ build:
 	@echo '    <key>CFBundlePackageType</key><string>APPL</string>' >> $(APP_BUNDLE)/Contents/Info.plist
 	@echo '    <key>LSMinimumSystemVersion</key><string>13.0</string>' >> $(APP_BUNDLE)/Contents/Info.plist
 	@echo '    <key>LSUIElement</key><true/>' >> $(APP_BUNDLE)/Contents/Info.plist
+	@echo '    <key>CFBundleIconFile</key><string>Wyatt</string>' >> $(APP_BUNDLE)/Contents/Info.plist
 	@echo '</dict>' >> $(APP_BUNDLE)/Contents/Info.plist
 	@echo '</plist>' >> $(APP_BUNDLE)/Contents/Info.plist
 	@echo "Built $(APP_BUNDLE)"
